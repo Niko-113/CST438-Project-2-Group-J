@@ -4,11 +4,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="Index.css" />
+        <link rel="stylesheet"/>
         <title>Wishsite - Create an Account</title>
     </head>
     <body>
-        <form action="/polls/create/" method="POST">
+        <!-- <form action="/polls/create/" method="POST">
             {% csrf_token %}
             <h3>Create an Account:</h3>      
                 Username:
@@ -20,8 +20,12 @@
                 <div class = "buttonSectionForm">
                     <button>Create</button>
                 </div>
+        </form> -->
+        <form action="/polls/create/" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Sign Up</button>
         </form>
 
-            <script src="Index.js"></script>
         </body>
 </html>
