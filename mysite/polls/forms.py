@@ -14,10 +14,16 @@ class CreationForm(forms.Form):
         username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
 
+        if User.objects.filter(username=username).exists():
+            self._errors['username'] = self.error_class(['Username \"' + username + '\" already exists!'])
+            #self._errors['username'] = self.error_class('That username already exists!')
+
         if len(password) < 6:
             self._errors['password'] = self.error_class(['Password must be at least 6 characters long!'])
 
-            return self.cleaned_data
+            
         if not password.isalnum():
             self._errors['password'] = self.error_class(['Password must be alphanumeric! (A-Z, 0-9)'])
+
+        return self.cleaned_data
 
