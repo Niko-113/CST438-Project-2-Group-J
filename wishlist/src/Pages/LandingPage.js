@@ -3,7 +3,7 @@ import React from 'react'
 function LandingPage() {
     return (
         <div>
-            This is the landing page
+            Welcome to the Wishlist page!
         </div>
     )
 }
