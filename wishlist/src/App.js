@@ -1,16 +1,23 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Navbar from "./components/Navbar";
+import LandingPage from "./Pages/LandingPage";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <head>
-          Homepage will go here
-        </head>
-
-      </header>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={LandingPage} />
+          <Route path="/Login" exact component={Login} />
+          <Route path="/Register" exact component={Register} />
+        </Switch>
+      </Router>
     </div>
   );
 }
