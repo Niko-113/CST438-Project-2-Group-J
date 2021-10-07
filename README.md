@@ -1,5 +1,13 @@
 # CST438-Project-2-Group-J
 
+# Description
+A website that allows the user to browse a catalog of items and add them to (or remove from) their own wishlist. Features admin pages for adding/editing/removal of users and items.
+
+# Tech Stack
+- Front-end: ReactJS
+- Back-end: Django
+- Database: SQLite
+
 # Contributors
 - Amy Wall
 - Cristina Martinez
