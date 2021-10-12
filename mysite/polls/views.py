@@ -4,9 +4,16 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import User
 from .forms import CreationForm
-# Create your views here.
+
+from django.http.response import JsonResponse
+from rest_framework.parsers import JSONParser 
+from rest_framework import status
+from rest_framework.decorators import api_view
+
 from rest_framework import generics, serializers
 from .serializers import UserSerializer
+# Create your views here.
+
 
 class ListUsers(generics.ListCreateAPIView):
     queryset = User.objects.all()
@@ -21,16 +28,22 @@ def index(request):
 
 def create(request):
     if request.method=="POST":
-        form = CreationForm(request.POST)
+        user_data = JSONParser().parse(request)
+        user_serializer = UserSerializer(data=user_data)
+        form = CreationForm(data=user_data)
 
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            newUser = User()
-            newUser.username = username
-            newUser.password = password
-            newUser.save() 
-            return redirect("/polls/create")
+        # if form.is_valid():
+        #     username = form.cleaned_data['username']
+        #     password = form.cleaned_data['password']
+        #     newUser = User()
+        #     newUser.username = username
+        #     newUser.password = password
+        #     newUser.save() 
+        #     return redirect("/polls/create")
+        if user_serializer.is_valid():
+            user_serializer.save()
+            return JsonResponse(user_serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse(user_serializer.errors)
     else:
         form = CreationForm()
     return render(request, 'create.html', {'form': form})

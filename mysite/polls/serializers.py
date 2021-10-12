@@ -10,3 +10,8 @@ class UserSerializer(serializers.ModelSerializer):
             'isAdmin',
         )
         model = User
+    def validate(self, data):        
+
+        if User.objects.filter(username=data['username']).exists():
+            raise serializers.ValidationError("Username " + data['username'] + " already exists!")
+        return data
