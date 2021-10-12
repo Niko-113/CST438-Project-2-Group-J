@@ -5,8 +5,16 @@ from django.template import loader
 from .models import User
 from .forms import CreationForm
 # Create your views here.
+from rest_framework import generics, serializers
+from .serializers import UserSerializer
 
+class ListUsers(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
+class DetailUsers(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
