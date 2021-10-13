@@ -1,30 +1,25 @@
-
-import './App.css';
-import Navbar from "./components/Navbar";
-import LandingPage from "./Pages/LandingPage";
+import "./App.css"
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
-import Search from "./Pages/Search";
-import About from "./Pages/About";
-import Contact from "./Pages/Contact";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {} from 'react-router-dom';
+import Homepage from "./Pages/Homepage";
+import AdminLogin from "./AdminPages/AdminLogin";
 
+//Landing page. User required to register and login to get access to Homepage
 function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
         <Switch>
-          <Route path="/" exact component={LandingPage} />
           <Route path="/Login" exact component={Login} />
           <Route path="/Register" exact component={Register} />
-          <Route path="/Search" exact component={Search} />
-          <Route path="/About" exact component={About} />
-          <Route path="/Contact" exact component={Contact} />
+          <Route path="/Homepage" exact component={Homepage} />
+          <Route path="/AdminLogin" exact component={AdminLogin} />
         </Switch>
       </Router>
     </div>
+
+    
   );
 }
 

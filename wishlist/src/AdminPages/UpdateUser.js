@@ -1,11 +1,11 @@
 import React from 'react'
 
-function EditItem() {
+function UpdateUser() {
     return (
         <div>
-            Edit Item from list
+            Update a user
         </div>
     )
 }
 
-export default EditItem;
+export default UpdateUser;

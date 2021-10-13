@@ -1,11 +1,11 @@
 import React from 'react'
 
-function EditItem() {
+function ViewUsers() {
     return (
         <div>
-            Edit Item from list
+            List of Users
         </div>
     )
 }
 
-export default EditItem;
+export default ViewUsers;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../styles/Login.css";
+import { Link } from "react-router-dom"
 
 export default function Login() {
   const [username, setUserName] = useState("");
@@ -39,6 +40,18 @@ export default function Login() {
           Login
         </Button>
       </Form>
+
+      <div className="LinkforReg">
+          <Link to="/Register">Don't have an account? Register by clicking this link</Link>
+      </div>
+
+      <div className="LinkforAdminLogin">
+          <Link to="/AdminLogin">Admin? Log in here</Link>
+      </div>
     </div>
+
+    
   );
+
+
 }
