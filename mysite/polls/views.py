@@ -43,7 +43,7 @@ def create(request):
         if user_serializer.is_valid():
             user_serializer.save()
             return JsonResponse(user_serializer.data, status=status.HTTP_201_CREATED)
-        return JsonResponse(user_serializer.errors)
+        return JsonResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     else:
         form = CreationForm()
     return render(request, 'create.html', {'form': form})

@@ -3,6 +3,7 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../styles/Register.css";
+import FormGroup from "react-bootstrap/esm/FormGroup";
 
 export default function Register() {
   // const [username, setUserName] = useState("");
@@ -34,8 +35,17 @@ export default function Register() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios.post("http://localhost:8000/polls/create/", formValues)
-    //console.log(axios.get("http://localhost:8000/polls"))
+    axios.post("http://localhost:8000/polls/create/", formValues).catch(function (error) {
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+        document.querySelector("#registerError").innerHTML = "Username " + formValues.username + " already exists!";
+        document.querySelector("#registerError").style.color = "red"
+      }
+    });
+    document.querySelector("#registerError").innerHTML = "Account successfully created!";
+    document.querySelector("#registerError").style.color = "green"
   }
 
   return (
@@ -51,6 +61,7 @@ export default function Register() {
             onChange={handleInputChange}
           />
         </Form.Group>
+        <div id="registerError"></div>
         <Form.Group size="lg" controlId="password">
           <Form.Label>Password: </Form.Label>
           <Form.Control
