@@ -1,0 +1,10 @@
+@media all and (min-width: 480px) {
+    .AddItem {
+      padding: 60px 0;
+    }
+  
+    .AddItem form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+  }
