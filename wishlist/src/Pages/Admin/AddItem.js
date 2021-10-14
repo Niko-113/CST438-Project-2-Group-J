@@ -23,7 +23,8 @@ export default function Register() {
     }
 
     function handleSubmit(event) {
-
+        event.preventDefault();
+        axios.post("http://localhost:8000/polls/createItem/", formValues)
     }
 
     function validateForm() {
@@ -37,7 +38,7 @@ export default function Register() {
               <Form.Label>Item Name: </Form.Label>
               <Form.Control
                 autoFocus
-                type="text"
+                type="username"
                 name="name"
                 value={formValues.name}
                 onChange={handleInputChange}
@@ -46,7 +47,7 @@ export default function Register() {
             <Form.Group size="lg" controlId="description">
               <Form.Label>Description: </Form.Label>
               <Form.Control
-                type="text"
+                type="username"
                 name="description"
                 value={formValues.description}
                 onChange={handleInputChange}
@@ -55,7 +56,7 @@ export default function Register() {
             <Form.Group size="lg" controlId="url">
               <Form.Label>Image URL: </Form.Label>
               <Form.Control
-                type="text"
+                type="username"
                 name="url"
                 value={formValues.url}
                 onChange={handleInputChange}
