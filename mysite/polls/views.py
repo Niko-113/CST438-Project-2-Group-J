@@ -26,3 +26,20 @@ def create(request):
     else:
         form = CreationForm()
     return render(request, 'create.html', {'form': form})
+
+# #add item to wishlist
+# #add/removed commented untill I know the DB var names to update these functions, but I'll update these once that's in -Amy
+# def addwishlist(request, id):
+#     customer=request.user.customer
+#     Wishlist.objects.filter(user_id=customer.id, product=Product.objects.get(id=id)).add()
+#     messages.success(request, 'Product Added to Wishlist...')
+#     return HttpResponseRedirect('/wishlist')
+
+
+# # #remove item from wishlist
+# def deletewishlist(request, id):
+#     customer=request.user.customer
+#     Wishlist.objects.filter(user_id=customer.id, product=Product.objects.get(id=id)).delete()
+#     messages.success(request, 'Product Remove From Wishlist...')
+#     return HttpResponseRedirect('/wishlist')
+
