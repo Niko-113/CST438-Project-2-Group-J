@@ -16,8 +16,15 @@ export default function Login() {
     event.preventDefault();
   }
 
+
   return (
+    
     <div className="Login">
+
+<div className="WishListTitle">
+  <h1>Welcome to the Wishlist page!</h1>
+    </div>
+
       <Form onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="username">
           <Form.Label>Username</Form.Label>
@@ -27,6 +34,8 @@ export default function Login() {
             value={username}
             onChange={(e) => setUserName(e.target.value)}
           />
+
+
         </Form.Group>
         <Form.Group size="lg" controlId="password">
           <Form.Label>Password</Form.Label>

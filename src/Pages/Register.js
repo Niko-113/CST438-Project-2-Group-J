@@ -41,9 +41,14 @@ export default function Register() {
 
   return (
     <div className="Register">
+
+<div className="WishListTitle">
+  <h1>Registration</h1>
+    </div>
+
       <Form onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="username">
-          <Form.Label>Username: </Form.Label>
+          <Form.Label>New Username: </Form.Label>
           <Form.Control
             autoFocus
             type="username"
@@ -53,7 +58,7 @@ export default function Register() {
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
-          <Form.Label>Password: </Form.Label>
+          <Form.Label>Create a Password: </Form.Label>
           <Form.Control
             type="password"
             name="password"
@@ -62,7 +67,7 @@ export default function Register() {
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password2">
-          <Form.Label>Repeat Password: </Form.Label>
+          <Form.Label>Re-type Password: </Form.Label>
           <Form.Control
             type="password"
             name="password2"

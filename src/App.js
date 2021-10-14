@@ -9,7 +9,11 @@ import AdminHomepage from "./AdminPages/AdminHomepage";
 //Landing page. User required to register and login to get access to Homepage
 function App() {
   return (
+
     <div className="App">
+
+    
+
       <Router>
         <Switch>
           <Route path="/" exact component={Login} /> 
@@ -20,8 +24,12 @@ function App() {
           <Route path="/AdminHomepage" exact component={AdminHomepage} />
         </Switch>
       </Router>
+
+      
+
     </div>
 
+  
   );
 }
 

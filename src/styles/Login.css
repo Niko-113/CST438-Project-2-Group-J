@@ -8,3 +8,17 @@
       max-width: 320px;
     }
   }
+
+  .LinkforReg {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .LinkforAdminLogin {
+    text-align: center;
+  }
+
+  .WishListTitle {
+    padding: 20px;
+    text-align: center;
+  }
