@@ -30,27 +30,13 @@ def create(request):
     if request.method=="POST":
         user_data = JSONParser().parse(request)
         user_serializer = UserSerializer(data=user_data)
-        form = CreationForm(data=user_data)
-
-        # if form.is_valid():
-        #     username = form.cleaned_data['username']
-        #     password = form.cleaned_data['password']
-        #     newUser = User()
-        #     newUser.username = username
-        #     newUser.password = password
-        #     newUser.save() 
-        #     return redirect("/polls/create")
         if user_serializer.is_valid():
             user_serializer.save()
             return JsonResponse(user_serializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    else:
-        form = CreationForm()
-    return render(request, 'create.html', {'form': form})
 
 def createItem(request):
     if request.method=="POST":
-        # test
         item_data = JSONParser().parse(request)
         item_serializer = ItemSerializer(data=item_data)
 
