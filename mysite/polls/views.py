@@ -1,3 +1,4 @@
+from typing import List
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
@@ -7,6 +8,7 @@ from .forms import CreationForm
 
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
+import json
 from rest_framework import status
 from rest_framework.decorators import api_view
 
@@ -22,6 +24,14 @@ class ListUsers(generics.ListCreateAPIView):
 class DetailUsers(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+class ListItems(generics.ListCreateAPIView):
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializer
+
+class DetailItems(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializer
 
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
@@ -47,9 +57,5 @@ def createItem(request):
             return JsonResponse(item_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def getItems(request):
-    print("HELP?")
-    items = Item.objects.all().values()
-    #items_list = serializers.serialize('json', items)
-    items_list = list(items)
-    print(items_list)
-    return JsonResponse(items_list, safe=False)
+    items = Item.objects.values()
+    return JsonResponse(list(items), safe=False)
