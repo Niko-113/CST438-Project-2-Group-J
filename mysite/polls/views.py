@@ -45,3 +45,11 @@ def createItem(request):
             return JsonResponse(item_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return JsonResponse(item_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+def getItems(request):
+    print("HELP?")
+    items = Item.objects.all().values()
+    #items_list = serializers.serialize('json', items)
+    items_list = list(items)
+    print(items_list)
+    return JsonResponse(items_list, safe=False)
