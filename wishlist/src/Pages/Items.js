@@ -1,5 +1,6 @@
 import React, { useState, Component } from "react";
 import axios from "axios";
+import "../App.css"
 
 export default function Items() {
     const [items, setItems] = React.useState([]);
@@ -16,16 +17,18 @@ export default function Items() {
     if (!items) return null;
 
     return (
-        <div className="wrapper">
+        <div className="itemWrapper">
         {items.length > 0 ? (
             <div className="content">
             {items.map((item) => (
                 <div className="item">
-                <h2>Item No. {item.id}: {item.name}</h2>
+                <h4>Item No. {item.id}: {item.name}</h4>
                 <p>{item.description}</p>
-                <img src={item.url}></img>
+                <img className="itemImg" src={item.url}></img>
+                <hr></hr>
                 </div>
             ))}
+            
         </div>
       ) : (
         <p className="loading">Loading... </p>
