@@ -14,7 +14,7 @@ function Navbar() {
                   <Link to="/">Home</Link>
                   <Link to="/Search">Search</Link>
                   <Link to="/EditProfile">Edit Profile</Link>
-                  <Link to="/EditItem">Edit Item</Link>
+                  <Link to="/UpdateItem">Update Item</Link>
                   <Link to="/About">About</Link>
                   <Link to="/Contact">Contact</Link>
                   
