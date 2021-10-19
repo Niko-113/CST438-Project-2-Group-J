@@ -42,7 +42,7 @@ export default function Register() {
       }
     });
     document.querySelector("#registerError").innerHTML = "Account successfully created!";
-    document.querySelector("#registerError").style.color = "green"
+    document.querySelector("#registerError").style.color = "green";
   }
 
   return (
