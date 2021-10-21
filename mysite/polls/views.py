@@ -17,12 +17,12 @@ from .serializers import ItemSerializer, UserSerializer
 # Create your views here.
 
 # Create user and save to the database
-user = User.objects.create_user('user', 'email@email.com', 'pass')
+# user = User.objects.create_user('user', 'email@email.com', 'pass')
 
-# Update fields and then save again
-user.first_name = 'First'
-user.last_name = 'Last'
-user.save()
+# # Update fields and then save again
+# user.first_name = 'First'
+# user.last_name = 'Last'
+# user.save()
 
 class ListUsers(generics.ListCreateAPIView):
     queryset = User.objects.all()

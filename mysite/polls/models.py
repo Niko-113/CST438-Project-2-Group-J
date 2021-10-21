@@ -11,7 +11,7 @@ class Item(models.Model):
     description = models.CharField(max_length=100, blank=True)
 
     url = models.CharField(max_length=100, blank=True)
-    item_id = models.ForeignKey(Item, on_delete=models.CASCADE)
+    # item_id = models.ForeignKey(Item, on_delete=models.CASCADE)
 
 
 
