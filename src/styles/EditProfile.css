@@ -1,0 +1,28 @@
+@media all and (min-width: 480px) {
+    .EditProfile {
+      padding: 60px 0;
+      align-content: center;
+    }
+  
+    .EditProfile form {
+      margin: 0 auto;
+      max-width: 320px;
+      
+    }
+  }
+
+  /*
+  .LinkforReg {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .LinkforAdminLogin {
+    text-align: center;
+  }
+
+  .WishListTitle {
+    padding: 20px;
+    text-align: center;
+  }
+  */

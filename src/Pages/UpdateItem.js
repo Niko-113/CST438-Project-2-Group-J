@@ -1,93 +1,90 @@
-import React, {useState} from 'react';
+import React, {Component} from 'react';
 import "../styles/UpdateItem.css";
 
-const UpdateItem = () => {
-    
-    const [contact, setContact] = useState();
-    const [addFormData, setAddFormData] = useState({
-        item:'',
-        url:'',
-        image:'',
-        description:'',
-        priority: ''
+class UpdateItem extends Component {
+    constructor(props) {
+        super(props)
 
-    })
+        this.state = {
+            item: "",
+            url: "",
+            image: "",
+            description: "",
+            priority: "",
 
-    const handleAddFormChange = (event) => {
-        event.preventDefault();
-
-        const fieldName = event.target.getAttribute('name');
-        const fieldValue = event.target.value;
-
-        const newFormData = {...addFormData};
-        newFormData[fieldName] = fieldValue;
-
-        setAddFormData(newFormData);
+        }
+        this.handleSubmit=this.handleSubmit.bind(this)
     }
 
-    const handleAddFormSubmit = (event)
+    itemhandler = (event) => {
+        this.setState({
+            item: event.target.value
+        })
+    }
+    urlhandler = (event) => {
+        this.setState({
+            url: event.target.value
+        })
+    }
+    imagehandler = (event) => {
+        this.setState({
+            image: event.target.value
+        })
+    }
 
+    descriptionhandler = (event) => {
+        this.setState({
+            description: event.target.value
+        })
+    }
 
-    return (
-        <div className = "updateitem-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>URL</th>
-                        <th>Image</th>
-                        <th>Description</th>
-                        <th>Priority</th>
-                    </tr>
+    priorityhandler = (event) => {
+        this.setState({
+            priority: event.target.value
+        })
+    }
 
-                </thead>
-                <tbody>
+    //message showing data sent successfully
+    handleSubmit = (event) => {
+        alert(`${this.state.item}  item added Successfully !`)
+        console.log(this.state);
+        this.setState({
+            item: "",
+            url: "",
+            image: "",
+            description: "",
+            priority: "",
+        })
+     event.preventDefault()
+        
+    }
 
-                </tbody>
-            </table>
+    render() {
+        return (
+            <div className="UpdateItem">
+
+                <form onSubmit={this.handleSubmit}>
+                    
+                    <label>Item: </label> <input type="text" value={this.state.item} onChange={this.itemhandler} placeholder="item name" /><br />
+                    <label>URL: </label> <input type="link" value={this.state.url} onChange={this.urlhandler} placeholder="URL" /><br />
+                    <label>Image: </label> <input type="image" value={this.state.image} onChange={this.imagehandler} placeholder="image" /><br />
+                    <label>Description: </label> <input type="text" value={this.state.description} onChange={this.descriptionhandler} placeholder="Type description of item" /><br />
+
+                    <label>Priority: </label><select onChange={this.priorityhandler} defaultValue="Select priority">
+                        <option defaultValue>Select Priority</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select><br />
+                    <input type="submit" value="Update Item" />
+                </form>
+
+            </div>
             
-            <h2>Add an item</h2>
-            <form>
-                <input
-                   type="text"
-                   name="item"
-                   required="required"
-                   placeholder="Item name"
-                   onChange = {handleAddFormChange}
-                />
-                <input
-                   type="link"
-                   name="url"
-                   required="required"
-                   placeholder="url"
-                   onChange = {handleAddFormChange}
-                />
-                <input
-                   type="text"
-                   name="image"
-                   required="required"
-                   placeholder="image goes here"
-                   onChange = {handleAddFormChange}
-                />
-                <input
-                   type="text"
-                   name="description"
-                   required="required"
-                   placeholder="decription"
-                   onChange = {handleAddFormChange}
-                />
-                <input
-                   type="text"
-                   name="priority"
-                   value = "required"
-                   placeholder=""
-                   onChange = {handleAddFormChange}
-                />
-                <button type="Submit">Add</button>
-            
-            </form>
-        </div>
-    );
-};
+        )
+    }
+}
 
-export default UpdateItem;
+export default UpdateItem
