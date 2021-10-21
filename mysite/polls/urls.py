@@ -7,4 +7,5 @@ urlpatterns = [
 	path('<int:pk>/', views.DetailUsers.as_view()),
 	path('create/', views.create, name ='create'),
 	path('createItem/', views.createItem, name = 'createItem'),
+	path('getItems/', views.getItems, name = 'getItems'),
 ]

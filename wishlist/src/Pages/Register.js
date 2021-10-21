@@ -6,9 +6,6 @@ import "../styles/Register.css";
 import FormGroup from "react-bootstrap/esm/FormGroup";
 
 export default function Register() {
-  // const [username, setUserName] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [password2, setPassword2] = useState("");
   const [formValues, setFormValues] = useState({
     username: "",
     password: "",

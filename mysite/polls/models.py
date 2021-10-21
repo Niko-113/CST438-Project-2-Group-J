@@ -9,7 +9,7 @@ class User(models.Model):
 class Item(models.Model):
     name = models.CharField(max_length=20)
     description = models.CharField(max_length=100, blank=True)
-    url = models.CharField(max_length=100, blank=True)
+    url = models.CharField(max_length=300, blank=True)
 
 class Wishlist(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
