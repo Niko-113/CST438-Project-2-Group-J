@@ -13,7 +13,11 @@ urlpatterns = [
 
 	path('createItem/', views.createItem, name = 'createItem'),
 
+
 	#Add Django site authentication urls (for login, logout, password management)
     path('accounts/', include('django.contrib.auth.urls')),
+
+
+	path('getItems/', views.getItems, name = 'getItems'),
 
 ]

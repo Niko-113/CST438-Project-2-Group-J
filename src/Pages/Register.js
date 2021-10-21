@@ -3,9 +3,12 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../styles/Register.css";
-import FormGroup from "react-bootstrap/esm/FormGroup";
+import { Link } from "react-router-dom"
 
 export default function Register() {
+  // const [username, setUserName] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [password2, setPassword2] = useState("");
   const [formValues, setFormValues] = useState({
     username: "",
     password: "",
@@ -32,24 +35,20 @@ export default function Register() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios.post("http://localhost:8000/polls/create/", formValues).catch(function (error) {
-      if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
-        document.querySelector("#registerError").innerHTML = "Username " + formValues.username + " already exists!";
-        document.querySelector("#registerError").style.color = "red"
-      }
-    });
-    document.querySelector("#registerError").innerHTML = "Account successfully created!";
-    document.querySelector("#registerError").style.color = "green"
+    axios.post("http://localhost:8000/polls/create/", formValues)
+    //console.log(axios.get("http://localhost:8000/polls"))
   }
 
   return (
     <div className="Register">
+
+<div className="WishListTitle">
+  <h1>Registration</h1>
+    </div>
+
       <Form onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="username">
-          <Form.Label>Username: </Form.Label>
+          <Form.Label>New Username: </Form.Label>
           <Form.Control
             autoFocus
             type="username"
@@ -58,9 +57,8 @@ export default function Register() {
             onChange={handleInputChange}
           />
         </Form.Group>
-        <div id="registerError"></div>
         <Form.Group size="lg" controlId="password">
-          <Form.Label>Password: </Form.Label>
+          <Form.Label>Create a Password: </Form.Label>
           <Form.Control
             type="password"
             name="password"
@@ -69,7 +67,7 @@ export default function Register() {
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password2">
-          <Form.Label>Repeat Password: </Form.Label>
+          <Form.Label>Re-type Password: </Form.Label>
           <Form.Control
             type="password"
             name="password2"
@@ -81,6 +79,9 @@ export default function Register() {
         Register
         </Button>
       </Form>
+      <div className="LinkforLogin">
+          <Link to="/Login">Go back to login</Link>
+      </div>
     </div>
   );
 }
