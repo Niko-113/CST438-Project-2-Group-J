@@ -57,8 +57,8 @@ def create(request):
 def addwishlist(request, id):
     customer=request.user.customer
     Wishlist.objects.filter(user_id=customer.id, product=Item.objects.get(id=id)).add()
-    # messages.success(request, 'Product Added to Wishlist...')
-    # return HttpResponseRedirect('/wishlist')
+    messages.success(request, 'Product Added to Wishlist...')
+    return HttpResponseRedirect('/wishlist')
 
 
 # # #remove item from wishlist
