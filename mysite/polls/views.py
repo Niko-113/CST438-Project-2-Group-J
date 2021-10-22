@@ -51,8 +51,8 @@ def login(request):
     password = user_data['password']
     if User.objects.filter(username = user).filter(password = password).exists():
         # TODO: log user into session
-        return HttpResponse(status=status.HTTP_200_OK)
-    return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+        return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+    return HttpResponse(status=status.HTTP_200_OK)
 
 def createItem(request):
     if request.method=="POST":
