@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import "../styles/AdminLogin.css";
 
 export default function AdminLogin() {
+  const history = useHistory();
   const [adminUsername, setadminUsername] = useState("");
   const [adminPassword, setadminPassword] = useState("");
 
@@ -14,6 +15,7 @@ export default function AdminLogin() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    history.push("/AdminHomepage")
   }
 
   return (
@@ -23,7 +25,7 @@ export default function AdminLogin() {
           <Form.Label>Admin Username</Form.Label>
           <Form.Control
             autoFocus
-            type="adminUsername"
+            type="username"
             value={adminUsername}
             onChange={(e) => setadminUsername(e.target.value)}
           />
@@ -31,7 +33,7 @@ export default function AdminLogin() {
         <Form.Group size="lg" controlId="adminPassword">
           <Form.Label>Admin Password</Form.Label>
           <Form.Control
-            type="adminPassword"
+            type="password"
             value={adminPassword}
             onChange={(e) => setadminPassword(e.target.value)}
           />

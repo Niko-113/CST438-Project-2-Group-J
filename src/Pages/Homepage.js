@@ -1,6 +1,6 @@
 
 import Navbar from "../components/Navbar";
-import Search from "./Search";
+import Items from "./Items";
 import About from "./About";
 import Contact from "./Contact";
 import EditItem from "./UpdateItem";
@@ -14,7 +14,7 @@ function Homepage() {
       <Router>
         <Navbar />
         <Switch>
-          <Route path="/Search" exact component={Search} />
+          <Route path="/Items" exact component={Items} />
           <Route path="/About" exact component={About} />
           <Route path="/Contact" exact component={Contact} />
           <Route path="/UpdateItem" exact component={EditItem} />

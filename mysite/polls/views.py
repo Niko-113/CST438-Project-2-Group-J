@@ -45,6 +45,15 @@ def create(request):
             return JsonResponse(user_serializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+def login(request):
+    user_data = JSONParser().parse(request)
+    user = user_data['username']
+    password = user_data['password']
+    if User.objects.filter(username = user).filter(password = password).exists():
+        # TODO: log user into session
+        return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+    return HttpResponse(status=status.HTTP_200_OK)
+
 def createItem(request):
     if request.method=="POST":
         item_data = JSONParser().parse(request)

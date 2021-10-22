@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import'../styles/Navbar.css'
 
-function Navbar() {
+function AdminNavbar() {
     return (
         <>
           <div className="navbar">
@@ -11,12 +11,9 @@ function Navbar() {
               </div>
 
               <div className="rightSide">
-                  <Link to="/">Home</Link>
-                  <Link to="/Items">Browse</Link>
-                  <Link to="/EditProfile">Edit Profile</Link>
-                  <Link to="/UpdateItem">Update Item</Link>
-                  <Link to="/About">About</Link>
-                  <Link to="/Contact">Contact</Link>
+                  <Link to="/AdminHomepage">Home</Link>
+                  <Link to="/Admin/AddItem">Create Item</Link>
+                  <Link to="/">Logout</Link>
                   
               </div>
 
@@ -26,4 +23,4 @@ function Navbar() {
     )
 }
 
-export default Navbar;
+export default AdminNavbar;
