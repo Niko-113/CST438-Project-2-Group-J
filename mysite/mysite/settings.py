@@ -61,6 +61,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
+    'https://cst438wishsite-type-j.herokuapp.com'
 )
 
 ROOT_URLCONF = 'mysite.urls'
