@@ -3,6 +3,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../styles/Login.css";
 import { Link } from "react-router-dom"
+import { Redirect } from 'react-router';
+import Homepage from "./Homepage";
 
 export default function Login() {
   const [username, setUserName] = useState("");
@@ -14,6 +16,7 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    window.location = '/Homepage';
   }
 
 
